@@ -19,12 +19,16 @@ WHERE name = 'SQL'
 -- Pour mettre à jour le tag `SQL` j'écris l'id `6` en dur dans la requête :
 UPDATE tag
 SET description = 'Foo bar baz'
-WHERE id = 6
+WHERE id = 6;
 
 -- Exo 2.1
 -- Insérez un tag :
 -- - nom : SASS
 -- - description : aucune
+INSERT INTO tag
+(name, description)
+VALUES
+('SASS', NULL);
 
 -- Exo 2.2
 -- Insérez une school year :
@@ -32,6 +36,10 @@ WHERE id = 6
 -- - description : La promo de l'année 2023
 -- - date de début : 15 mars 2023
 -- - date de fin : aucune
+INSERT INTO school_year
+(name, description, start_date, end_date)
+VALUES
+('Promo 2023', 'La promo de l\'année 2023', '2023-03-15', NULL);
 
 -- Exo 2.3
 -- Créez une relation entre un student et un tag :
@@ -39,14 +47,21 @@ WHERE id = 6
 -- - tag : SASS (id inconnu)
 -- Note : c'est à vous de retrouver l'id du tag mais vous pouvez l'inscrire en dur dans la requête.
 
+
 -- Exo 2.4
 -- Mettez à jour le tag `HTML` :
 -- description : Le HTML est un language de structuration de données.
+UPDATE tag
+SET description = 'Le HTML est un language de structuration de données'
+WHERE name = 'HTML';
 
 -- Exo 2.5
 -- Mettez à jour le tag `Bash` :
 -- nom : Terminal Bash
 -- description : Le terminal Bash est l'interface en ligne de commande par défaut sous Linux.
+UPDATE tag
+SET description = 'Le terminal Bash est l\'interface en ligne de commande par défaut sous Linux', name = 'Terminal Bash'
+WHERE name = 'Bash';
 
 -- Exo 2.6
 -- Supprimez la relation entre un student et un tag :
@@ -65,6 +80,8 @@ WHERE id = 6
 -- Exo 2.9
 -- Supprimez un student :
 -- - student : Odette Thomas
+DELETE FROM student
+WHERE firstname = 'Odette' AND lastname = 'Thomas';
 
 -- Exo 2.10
 -- Supprimez un project et toutes les relations avec ses dépendances, c-à-d les relations avec des student et les relations avec des tags :
