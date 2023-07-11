@@ -97,8 +97,9 @@ SELECT *
 FROM project
 WHERE name = 'Dicta quia at qui.';
 
-DELETE FROM student
-WHERE ((student.firstname = 'Arthur' AND student.lastname = 'Lacombe') AND project_id = 6);
+UPDATE student
+SET project_id = NULL
+WHERE (student.firstname = 'Arthur' AND student.lastname = 'Lacombe');
 
 -- Exo 2.8
 -- Supprimez toutes les relations entre un student et ses tags :
